@@ -1,16 +1,63 @@
-# flutter_full_learn
+# Notlar
 
-A new Flutter project.
+*Mixin class* 
 
-## Getting Started
+Bir sınıfa özellikler ekleme: mixins
+Mixins, bir sınıfın kodunu birden çok sınıf hiyerarşisinde yeniden kullanmanın bir yoludur.
 
-This project is a starting point for a Flutter application.
+Bir mixin kullanmak için with anahtar sözcüğünü ve ardından bir veya daha fazla mixin adını kullanın. Aşağıdaki örnek, mixins kullanan iki sınıfı göstermektedir:
 
-A few resources to get you started if this is your first Flutter project:
+```
+class Musician extends Performer with Musical {
+  // ···
+}
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+class Maestro extends Person with Musical, Aggressive, Demented {
+  Maestro(String maestroName) {
+    name = maestroName;
+    canConduct = true;
+  }
+}
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Bir mixin uygulamak için, Object'i genişleten ve hiçbir constructor bildirmeyen bir sınıf oluşturun. Mixin'inizin normal bir sınıf olarak kullanılmasını istemiyorsanız, class yerine mixin anahtar sözcüğünü kullanın. Örneğin:
+
+```
+mixin Musical {
+  bool canPlayPiano = false;
+  bool canCompose = false;
+  bool canConduct = false;
+
+  void entertainMe() {
+    if (canPlayPiano) {
+      print('Playing piano');
+    } else if (canConduct) {
+      print('Waving hands');
+    } else {
+      print('Humming to self');
+    }
+  }
+}
+
+```
+
+bazen mixin, mixin 'in tanımlandığı bir methodu çağırabilmeye bağlı olabilir. Aşağıdaki örnekte gösterildiği gibi, gerekli üst sınıfı belirtmek için on anahtar sözcüğünü kullanarak bir mixin kullanımını kısıtlayabilirsiniz:
+
+```
+class Musician {
+  // ...
+}
+mixin MusicalPerformer on Musician {
+  // ...
+}
+class SingerDancer extends Musician with MusicalPerformer {
+  // ...
+}
+```
+
+Önceki kodda, yalnızca Musician sınıfını extend veya implement eden sınıflar Mixin MusicalPerformer'ı kullanabilir. SingerDancer, Musician'ı extend ettiği için SingerDancer, MusicalPerformer'da mix yapabilir.
+
+kaynak: https://dart.dev/guides/language/language-tour#adding-features-to-a-class-mixins
+
+
+
