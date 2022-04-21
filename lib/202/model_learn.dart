@@ -5,6 +5,7 @@ class PostModel1 {
   String? body;
 }
 
+//BU DEĞİŞKENLER UYGULAMA OLUŞTUĞUNDA GELECEK
 class PostModel2 {
   int userId;
   int id;
@@ -14,6 +15,7 @@ class PostModel2 {
   PostModel2(this.userId, this.id, this.title, this.body);
 }
 
+//BU DEĞİŞKENLER SADECE CONSTRUCTOR ZAMANNINDA GELEBİLİR VE İNİTİALİZE OLABİLİR
 class PostModel3 {
   final int userId;
   final int id;
@@ -23,6 +25,7 @@ class PostModel3 {
   PostModel3(this.userId, this.id, this.title, this.body);
 }
 
+//POSTMODEL3'ÜN AYNISI SADECE NAMED PARAMETRE ALIR
 class PostModel4 {
   final int userId;
   final int id;
@@ -32,6 +35,8 @@ class PostModel4 {
   PostModel4({required this.userId, required this.id, required this.title, required this.body});
 }
 
+
+//KULLANICIDAN ALINAN DEĞERLERİ PRİVATE DEĞERLERE EŞİTLER
 class PostModel5 {
   final int _userId;
   final int _id;
@@ -49,6 +54,8 @@ class PostModel5 {
         _title = title,
         _body = body;
 }
+
+//YUKARIDAKİYLE AYNI MANTIK -LATE FİNAL BU DEĞER SADECE CONSTRUCTOR ZAMANINDA SONRADAN GELECEK DEMEK- BAŞKA ZAMAN DEĞER ATAMASI YAPILIRSA HATA VERİR.
 
 class PostModel6 {
   late final int _userId;
