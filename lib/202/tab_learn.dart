@@ -24,6 +24,7 @@ class _TabLearnState extends State<TabLearn> with TickerProviderStateMixin {
       length: _MyTabViews.values.length,
       child: Scaffold(
         extendBody: true,
+        //butonu alt ortaya sabitler
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(onPressed: () {
           _tabController.animateTo(_MyTabViews.home.index);
