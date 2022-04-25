@@ -3,6 +3,7 @@
 *Mixin class* 
 
 Bir sınıfa özellikler ekleme: mixins
+
 Mixins, bir sınıfın kodunu birden çok sınıf hiyerarşisinde yeniden kullanmanın bir yoludur.
 
 Bir mixin kullanmak için with anahtar sözcüğünü ve ardından bir veya daha fazla mixin adını kullanın. Aşağıdaki örnek, mixins kullanan iki sınıfı göstermektedir:
